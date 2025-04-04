@@ -1,0 +1,249 @@
+@charset "UTF-8";
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fefaf6;
+    color: #333;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 15px 5%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+    color: #000;
+    margin: 0 15px;
+    padding: 10px 15px;
+    border: 2px solid #000;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.nav-buttons a:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* Sections */
+section {
+    padding: 80px 5%;
+    text-align: center;
+}
+
+/* Home Section */
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 80px;
+}
+
+.image-container img {
+    width: 400px;
+    border-radius: 10px;
+}
+
+.text-content {
+    max-width: 500px;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.text-content h2 {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.signup-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #ff6b6b;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+/* Upload Section */
+.upload-container select, .upload-container button {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.upload-icons img {
+    width: 300px;
+    margin-top: 20px;
+}
+
+.upload-button {
+    background: #ff6b6b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* About Section */
+.about-container img {
+    width: 90%;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.learn-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #ff6b6b;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+/* Contact Section */
+.contact-container {
+    background: #f8f8f8;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.contact-container img {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-container input, .contact-container textarea {
+    width: 80%;
+    max-width: 400px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-container button {
+    background: #ff6b6b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* Authentication Pages (Login, Signup, Forgot Password, Reset Password) */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f8f8f8;
+}
+
+.auth-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+}
+
+.auth-container h2 {
+    margin-bottom: 10px;
+}
+
+.auth-container input {
+    width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.auth-container button {
+    width: 100%;
+    background: #ff6b6b;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.auth-links a {
+    display: block;
+    margin-top: 10px;
+    color: #ff6b6b;
+    text-decoration: none;
+}
+
+/* Profile Page */
+.profile-container {
+    text-align: center;
+    padding: 50px;
+}
+
+.profile-container img {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.profile-container a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+.edit-btn {
+    background: #007bff;
+}
+
+.logout-btn {
+    background: #dc3545;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
