@@ -8,7 +8,7 @@
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit" class="modal-button">Login</button>
         </form>
-        <p><a href="#" id="open-forgot-password">Forgot Password?</a></p>
+        <!-- <p><a href="#" id="open-forgot-password">Forgot Password?</a></p> -->
         <p>Don't have an account? <a href="#" id="switch-to-signup">Sign Up</a></p>
     </div>
 </div>
@@ -77,31 +77,4 @@
     </div>
 </div>
 
-<!-- Profile Modal -->
-<div id="profileModal" class="modal">
-    <div class="modal-content">
-        <span class="close" id="close-profile">&times;</span>
-        <h2>User Profile</h2>
 
-        <div class="profile-section">
-            <h3><%= request.getSession().getAttribute("name") %></h3>
-            <p><%= request.getSession().getAttribute("email") %></p>
-        </div>
-
-        <hr>
-
-        <h3>Edit Profile</h3>
-        <form action="UpdateProfileServlet" method="post" enctype="multipart/form-data">
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" value="<%= request.getSession().getAttribute("name") %>" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" value="<%= request.getSession().getAttribute("email") %>" required>
-
-            <label for="profilePic">Profile Picture:</label>
-            <input type="file" id="profilePic" name="profilePic" accept="image/*">
-
-            <button type="submit" class="modal-button">Save Changes</button>
-        </form>
-    </div>
-</div>

@@ -22,10 +22,11 @@ public class SignupServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String name = request.getParameter("name");
+        String userName = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("c-password");
+        
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -53,12 +54,16 @@ public class SignupServlet extends HttpServlet {
                     }
                 }
 
+                // Optional: Set default profile picture
+                String defaultProfilePic = "assets/images/default.png";
+
                 // Insert new user
-                String sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+                String sql = "INSERT INTO users (name, email, password, profile_pic) VALUES (?, ?, ?, ?)";
                 try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-                    stmt.setString(1, name);
+                    stmt.setString(1, userName);
                     stmt.setString(2, email);
                     stmt.setString(3, hashedPassword);
+                    stmt.setString(4, defaultProfilePic);
 
                     int rowsInserted = stmt.executeUpdate();
                     if (rowsInserted > 0) {

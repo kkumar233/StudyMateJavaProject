@@ -1,41 +1,48 @@
-/**
- * 
- */
+const stars = document.querySelectorAll(".star");
+const ratingInput = document.getElementById("rating");
+const feedbackText = document.getElementById("feedback-text");
+const submitButton = document.getElementById("submit-feedback");
 
-document.addEventListener('DOMContentLoaded', function () {
-    const stars = document.querySelectorAll('.star');
-    const feedbackText = document.getElementById('feedback-text');
-    const submitButton = document.getElementById('submit-feedback');
-    let rating = 0;
+let selectedRating = 0;
 
-    // Star Rating Logic
-    stars.forEach(star => {
-        star.addEventListener('click', function () {
-            rating = this.getAttribute('data-value');
-            stars.forEach(s => s.classList.remove('active'));
-            this.classList.add('active');
-            this.previousElementSibling && this.previousElementSibling.classList.add('active');
-            this.nextElementSibling && this.nextElementSibling.classList.remove('active');
-            checkSubmit();
+// Handle star clicks
+stars.forEach(star => {
+    star.addEventListener("click", () => {
+        selectedRating = parseInt(star.getAttribute("data-value"));
+        ratingInput.value = selectedRating;
+
+        // Highlight stars
+        stars.forEach(s => {
+            s.style.color = parseInt(s.getAttribute("data-value")) <= selectedRating ? "#f39c12" : "#ccc";
         });
+
+        checkEnableSubmit();
     });
+});
 
-    // Enable Submit Button
-    feedbackText.addEventListener('input', checkSubmit);
+// Enable submit button only when rating and feedback are filled
+feedbackText.addEventListener("input", checkEnableSubmit);
 
-    function checkSubmit() {
-        if (rating > 0 && feedbackText.value.trim() !== "") {
-            submitButton.removeAttribute('disabled');
-        } else {
-            submitButton.setAttribute('disabled', true);
-        }
+function checkEnableSubmit() {
+    const feedback = feedbackText.value.trim();
+    if (selectedRating > 0 && feedback.length > 0) {
+        submitButton.disabled = false;
+    } else {
+        submitButton.disabled = true;
     }
+}
 
-    // Submit Button Click Event
-    submitButton.addEventListener('click', function () {
-        alert(`Feedback Submitted!\nRating: ${rating} stars\nComment: ${feedbackText.value}`);
-        feedbackText.value = "";
-        stars.forEach(s => s.classList.remove('active'));
-        submitButton.setAttribute('disabled', true);
-    });
+// Validate on submit
+document.getElementById("feedback-form").addEventListener("submit", function(e) {
+    const userStatus = document.getElementById("user-status").value;
+    const feedback = feedbackText.value.trim();
+    const ratingValue = ratingInput.value;
+
+    if (userStatus !== "loggedIn") {
+        e.preventDefault();
+        alert("Please log in or sign up to submit feedback.");
+    } else if (!ratingValue || feedback === "") {
+        e.preventDefault();
+        alert("Please provide both rating and feedback.");
+    }
 });

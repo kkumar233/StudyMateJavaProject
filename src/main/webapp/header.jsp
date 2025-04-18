@@ -12,8 +12,14 @@
             String userName = (String) session.getAttribute("userName"); 
             if (userName != null) {
         %>
-            <a href="#" id="open-profile">Profile</a> /
-            <a href="LogoutServlet">Logout</a>
+        	<!-- Profile Link with Icon -->
+            <a href="#" id="open-profile" title="View Profile">
+            <i class="fas fa-user-circle"></i> <strong><%= userName %></strong></a>
+            
+            <!-- Logout Icon -->
+            <a href="LogoutServlet" title="Logout">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
         <%
             } else {
         %>

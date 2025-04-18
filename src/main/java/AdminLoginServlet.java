@@ -11,8 +11,8 @@ public class AdminLoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     // Static Admin Credentials (No Database)
-    private static final String ADMIN_USERNAME = "admin";
-    private static final String ADMIN_PASSWORD = "admin123";
+    private static final String ADMIN_USERNAME = "karan";
+    private static final String ADMIN_PASSWORD = "karan123";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -29,7 +29,7 @@ public class AdminLoginServlet extends HttpServlet {
             response.sendRedirect("adminDashboard.jsp"); // Redirect to Admin Dashboard
         } else {
             request.setAttribute("errorMessage", "Invalid Username or Password!");
-            request.getRequestDispatcher("adminLogin.jsp").forward(request, response); // Show error on login page
+            request.getRequestDispatcher("index.jsp").forward(request, response); // Show error on login page
         }
     }
 }
